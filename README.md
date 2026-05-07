@@ -6,14 +6,18 @@ Cilj projekta je prikazati osnovne funkcionalnosti jedne internet prodavnice kro
 pregledanje proizvoda,uvid u detalje kao što su naziv,cijena i opis artikla,kao i vizuelni prikaz proizvoda putem slika.
 
 # &#x1F465; Članovi grupe
-Ime i prezime        GitHub                 Zaduženje
-Merisa Hodžić       @hodzicmerisa30        HTML+struktura
-Tarik Salihović     @Taksiha05            CSS+dizajn
-Meliha Mujkanović   @melihamujkanović    JavaScript
+
+Merisa Hodžić    GitHub: @hodzicmerisa30       HTML+struktura
+
+Tarik Salihović     @Taksiha05                 CSS+dizajn
+
+Meliha Mujkanović   @melihamujkanović          JavaScript
 
 ## Tehnologije 
 -HTML5
+
 -CSS (bez frameworka)
+
 -JavaSrcipt (bez biblioteka)
 
 # &#x1F916; AI alati korišteni u projektu
