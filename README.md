@@ -13,6 +13,7 @@ Tarik Salihović    GitHub: @Taksiha05                 CSS+dizajn
 
 Meliha Mujkanović   GitHub: @melihamujkanović          JavaScript
 
+
 ## Tehnologije 
 -HTML5
 
