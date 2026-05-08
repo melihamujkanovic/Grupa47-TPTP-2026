@@ -7,11 +7,11 @@ pregledanje proizvoda,uvid u detalje kao što su naziv,cijena i opis artikla,kao
 
 # &#x1F465; Članovi grupe
 
-Merisa Hodžić    GitHub: @hodzicmerisa30       HTML+struktura
+Merisa Hodžić     GitHub: @hodzicmerisa30       HTML+struktura
 
-Tarik Salihović     @Taksiha05                 CSS+dizajn
+Tarik Salihović    GitHub: @Taksiha05                 CSS+dizajn
 
-Meliha Mujkanović   @melihamujkanović          JavaScript
+Meliha Mujkanović   GitHub: @melihamujkanović          JavaScript
 
 ## Tehnologije 
 -HTML5
