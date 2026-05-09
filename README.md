@@ -11,7 +11,7 @@ Merisa Hodžić     GitHub: @hodzicmerisa30       HTML+struktura
 
 Tarik Salihović    GitHub: @Takisha05                 CSS+dizajn
 
-Meliha Mujkanović   GitHub: @melihamujkanović          JavaScript
+Meliha Mujkanović   GitHub: @melihamujkanovic          JavaScript
 
 
 ## Tehnologije 
