@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1.0">
+    <meta name="color-scheme" content ="light dark">
+    <title> Sola Online Shop</title>
+<link rel="stylesheet" href="css/tptpstil.css">
+<script src="js/tptpskripte.js" defer></script>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color"
+content="#ffffff">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Link za Font Awesome ikonice dodano uz pomoć AI-a-->
+</head>
+<body>
+    <header>
+        <input type="text" id="korisnickoIme" placeholder="Unesi ime">
+<button id="spasiDugme">Spasi me</button> <!-- uz pomoć Gemini AI-a dodano je polje za unos imena za localStorage-->
+        <!-- ove dijelove koda za svg logo sam napisala uz pomoć Gemini AI-->
+       <svg class="logo" width="150" height="50" 
+       viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+          <text x="10" y="35" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="28" font-weight="300" letter-spacing="3" fill="black">
+            SOLA
+          </text>
+</svg> 
+        <nav>
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="sadrzaj.html">Proizvodi</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="https://github.com/melihamujkanovic/Grupa47-TPTP-2026.git" target="_blank">GitHub Repozitorij</a></li>
+            </ul>
+            </nav>
+            </header>
+            <hr>
+            <nav>
+            <h2>Dobrodošli u Sola Online Shop!</h2>
+            <h3> Kategorije proizvoda:</h3>
+            <ul>
+                <li> <button class="filter-btn"
+                data -filter ="all">Svi Proizvodi</
+                button></li>
+                <li>
+                    <strong> Ženska odjeća</strong>
+            <ul>
+                <li><button class="filter-btn"
+                data-filter="haljine">Haljine</button></li>
+                <li><button class="filter-btn"
+                data-filter="suknje">Suknje</button></li>
+                </li>
+            <li>
+                <strong> Muška odjeća</strong>
+            <ul>
+                <li><button class="filter-btn"
+                data-filter="kosulje">Košulje</button></li>
+                <li><button class="filter-btn"
+                data-filter="hlace">Hlače</button></li>
+                </ul>
+                  </li>
+                  </ul>
+                  </nav>
+<!--Ove dijelove koda koji predstavljaj navigaciju za filtriranje napisala sam pomoću GitHub Copilota.
+Razumijem da struktura lista <ul> i <li> predstavlja ugniježdene liste kako bi logički razdvojila mušku
+ i žensku odjeću  class="filter-btn" je Copilot dodao svim dugmićima ona je meta za JavaScript
+ data-filter="haljine" ovo se zove data atribut kada kliknemo na dugme haljine JavaScript ce procitati
+da je data-filter postavljen na haljine 
+data-filter="all" ovo dugme služi da poništi filter i ponovo prikaže apsolutno sve proizvode koje
+imamo u HTML-u -->
+
+<main>
+<div class="product-card"
+data-category="haljine">
+<img src="images/haljina.jpg" alt="Crna čipkana haljina" width="250">
+<h3> Svečana čipkana haljina </h3>
+<p> Elegantna haljina sa cvjetnim motivima i otvorenim ramenima,savršena za maturske večeri.</p>
+<a href="sadrzaj.html"><button class="detalji-btn">Pogledaj detalje </button> </a>
+</div>
+<div class="product-card"
+data-category="haljine">
+<img src="images/haljina2.jpg" alt="Kratka roza haljina sa naborima i puf rukavima" width="250">
+<h3> Kratka ljetna haljina sa puf rukavima </h3>
+<p> Lagana i prozračna haljina u nježnoj rozoj boji sa strukiranim gornjim dijelom i elegantnim puf rukavima. </p>
+<a href="sadrzaj.html"><button class="detalji-btn">Pogledaj detalje </button> </a>
+</div>
+<div class="product-card"
+data-category="suknje">
+<img src="images/suknja.jpg"alt="Roza satenska sunkja dugog kroja sa naborima na struku" width="250">
+<h3> Elegantna satenska suknja </h3>
+<p> Luksuzna suknja od satena ,idealna za svečane prilike i večernje izlaske</p>
+<a href="sadrzaj.html"><button class="detalji-btn">Pogledaj detalje </button> </a>
+</div>
+<div class="product-card"
+data-category="košulje" >
+<img src="images/kosulja.jpg" alt="Smeđa muška košulja dugih rukava sa džepom " width="250">
+<h3> Muška lanena košulja</h3>   
+<p> Lagana i prozračna košulja od mješavine lana za moderan izgled</p>
+<a href="sadrzaj.html"><button class="detalji-btn">Pogledaj detalje </button> </a>
+</div>
+<div class="product-card"
+data-category="košulje">
+<img src="images/muska kosulja.jpg"alt="Elegantna crna muška košulja uskog kroja sa blagim sjajem" width="250">
+<h3> Crna košulja</h3>
+<p> Vrhunska košulja od satenskog pamuka ,dizajnirana za prilike u kojima želite ostavit utisak</p>
+<a href="sadrzaj.html"><button class="detalji-btn">Pogledaj detalje </button> </a>
+</div>
+<div class="product-card"
+data-category="hlače">
+<img src="images/hlace.jpg"alt="Smeđe hlače sa faltnama i manžetama " width="250">
+<h3>Strukirane tamnosmeđe hlače</h3>
+<p> Model širokog kroja sa klasičnim naborima i podvrnutim rubom za moderan vintage izgled</p>
+<a href="sadrzaj.html"><button class="detalji-btn">Pogledaj detalje </button> </a>
+</div>
+</main>
+<aside> 
+<h3> Naša lokacija</h3>
+<p> Naš prodajni prostor se nalazi u naselju Stupine B6 u Tuzli.Dođite i pronađite savršenu kombinaciju za sebe!</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.2685245072244!2d18.686665378439166!3d44.53013413135884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475ead33b0782831%3A0x282f1ff059c18d96!2sAvenija%20Stupine%20B6%2C%20Tuzla%2075101!5e0!3m2!1sbs!2sba!4v1778329365259!5m2!1sbs!2sba" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ </aside>    
+ <footer>  
+    <hr>
+    <p>&copy; 2025/2026 - Sola Online Shop</p>
+    <p>Autori: Merisa Hodžić, Tarik Salihović , Meliha Mujkanović</p>
+    <h> </h>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+</footer>
+
+
