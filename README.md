@@ -9,9 +9,9 @@ pregledanje proizvoda,uvid u detalje kao što su naziv,cijena i opis artikla,kao
 
 Merisa Hodžić     GitHub: @hodzicmerisa30       HTML+struktura
 
-Tarik Salihović    GitHub: @Taksiha05                 CSS+dizajn
+Tarik Salihović    GitHub: @Takisha05                 CSS+dizajn
 
-Meliha Mujkanović   GitHub: @melihamujkanović          JavaScript
+Meliha Mujkanović   GitHub: @melihamujkanovic          JavaScript
 
 
 ## Tehnologije 
