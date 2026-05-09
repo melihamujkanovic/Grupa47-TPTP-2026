@@ -14,3 +14,21 @@ btn.addEventListener("click", () => {
     }
     localStorage.setItem("theme", theme);
 });
+
+//Kod za filtriranje proizvoda
+const filterButtons = document.querySelectorAll(".filter-btn");
+const productCards = document.querySelectorAll(".product-card");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const filterValue = button.getAttribute("data-filter");
+        productCards.forEach(card => {
+            if (filterValue === "all" || filterValue=== card.getAttribute("data-category")) {
+                card.style.display = "block"; // Prikazujemo karticu ako se poklapa ili ako je filter "all"
+            } 
+            else {
+                card.style.display = "none"; // Sakrivamo karticu ako se ne poklapa
+            }
+        });
+    });
+});
