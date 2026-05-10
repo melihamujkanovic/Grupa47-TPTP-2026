@@ -32,3 +32,19 @@ filterButtons.forEach(button => {
         });
     });
 });
+// Kod za čuvanje korisničkog imena u localStorage
+const spasiDugme =document.getElementById("spasiDugme");
+const unosIme = document.getElementById("korisnickoIme");
+spasiDugme.addEventListener("click", () => {
+    const ime = unosIme.value;
+    localStorage.setItem("korisnik", ime);
+    alert("Korisničko ime sačuvano: " + ime);
+
+});
+
+window.onload = () => {
+    const sacuvanoIme = localStorage.getItem("korisnik");
+    if (sacuvanoIme) {
+        alert("Dobrodošli nazad, " + sacuvanoIme + "!");
+    }
+};
