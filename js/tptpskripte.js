@@ -1,3 +1,12 @@
+// Registracija Service Workera
+if ('serviceWorker' in navigator) { // Proveravamo da li browser podržava Service Workere
+  window.addEventListener('load', () => {// Registrujemo Service Worker nakon što se stranica učita
+    navigator.serviceWorker.register('/sw.js') 
+      .then(reg => console.log('Service Worker registrovan!'))
+      .catch(err => console.log('Greška pri registraciji SW', err));
+  });
+}
+
 // Tamni mod toggle
 const btn = document.getElementById("dark-mode-toggle");
 const currentTheme = localStorage.getItem("theme");
@@ -32,3 +41,19 @@ filterButtons.forEach(button => {
         });
     });
 });
+// Kod za čuvanje korisničkog imena u localStorage
+const spasiDugme =document.getElementById("spasiDugme");
+const unosIme = document.getElementById("korisnickoIme");
+spasiDugme.addEventListener("click", () => {
+    const ime = unosIme.value;
+    localStorage.setItem("korisnik", ime);
+    alert("Korisničko ime sačuvano: " + ime);
+
+});
+
+window.onload = () => {
+    const sacuvanoIme = localStorage.getItem("korisnik");
+    if (sacuvanoIme) {
+        alert("Dobrodošli nazad, " + sacuvanoIme + "!");
+    }
+};
