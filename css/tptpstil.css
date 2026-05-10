@@ -1,0 +1,295 @@
+/* 1. CSS VARIJABLE */
+:root {
+    --primarna: #1a1a1a;
+    --akcent: #c5a059;
+    --pozadina: #fdfdfd;
+    --bijela: #ffffff;
+    --siva: #f4f4f4;
+    --tekst-muted: #666;
+    --font-glavni: 'Segoe UI', Roboto, Arial, sans-serif;
+    --tranzicija: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode varijable */
+body.dark-mode {
+    --primarna: #f4f4f4;
+    --pozadina: #121212;
+    --bijela: #1e1e1e;
+    --siva: #252525;
+    --tekst-muted: #bbb;
+}
+
+/* Osnovni reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-glavni);
+    background-color: var(--pozadina);
+    color: var(--primarna);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s;
+}
+
+/* 2. HEADER */
+header {
+    background: var(--bijela);
+    padding: 20px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 100%;
+    z-index: 1000;
+}
+
+#korisnickoIme {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: var(--bijela);
+    color: var(--primarna);
+}
+
+#spasiDugme, #dark-mode-toggle {
+    padding: 6px 12px;
+    margin: 5px;
+    cursor: pointer;
+    background: var(--primarna);
+    color: var(--bijela);
+    border: 1px solid var(--primarna);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--tranzicija);
+}
+
+#spasiDugme:hover, #dark-mode-toggle:hover {
+    background: var(--akcent);
+    border-color: var(--akcent);
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--primarna);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: var(--tranzicija);
+}
+
+header nav ul li a:hover { color: var(--akcent); }
+
+/* SVG Logo */
+.logo text {
+    fill: var(--primarna);
+    transition: fill 0.3s;
+}
+
+/* --- STRUKTURA --- */
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 3. SIDEBAR (Lijeva strana) */
+.content-wrapper > nav {
+    width: 280px;
+    padding: 40px 30px;
+    background: var(--bijela);
+    border-right: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.content-wrapper > nav h2 {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.content-wrapper > nav h3 {
+    font-size: 0.9rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--akcent);
+    text-transform: uppercase;
+}
+
+/* 4. FILTER DUGMAD */
+.filter-btn {
+    padding: 8px 0;
+    background: transparent;
+    color: var(--primarna);
+    border: none;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    text-align: left;
+    width: auto;
+    transition: var(--tranzicija);
+}
+
+.filter-btn:hover {
+    color: var(--akcent);
+    padding-left: 5px;
+    border-bottom: 1px solid var(--akcent);
+}
+
+/* 5. MAIN - GRID PROIZVODA */
+main {
+    flex: 1;
+    display: grid;
+    gap: 30px;
+    padding: 40px;
+    animation: stranicaFadeIn 0.8s ease-out;
+}
+
+.product-card {
+    background: var(--bijela);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 20px;
+    text-align: center;
+    transition: var(--tranzicija);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Ovo osigurava da su sve slike iste visine bez razvlačenja */
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    min-height: 2.4em; /* Poravnava naslove u dva reda */
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: var(--tekst-muted);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.detalji-btn {
+    padding: 12px;
+    background: var(--primarna);
+    color: var(--bijela);
+    border: 1px solid var(--primarna);
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: var(--tranzicija);
+}
+
+.detalji-btn:hover {
+    background: var(--akcent);
+    border-color: var(--akcent);
+}
+
+/* 6. ASIDE (Lokacija) */
+aside {
+    width: 100%;
+    padding: 60px 20px;
+    background: var(--siva);
+    text-align: center;
+}
+
+aside h3 { margin-bottom: 15px; text-transform: uppercase; }
+
+aside iframe {
+    width: 100%;
+    max-width: 1000px;
+    height: 400px;
+    border: 0;
+    filter: grayscale(0.5); /* Moderniji izgled mape */
+    transition: 0.3s;
+    margin-top: 30px;
+}
+
+aside iframe:hover { filter: grayscale(0); }
+
+/* 7. FOOTER */
+footer {
+    width: 100%;
+    padding: 50px 20px;
+    background: var(--bijela);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+footer p { font-size: 14px; margin-bottom: 10px; opacity: 0.8; }
+
+.social-links { margin-top: 20px; }
+
+.social-links a {
+    font-size: 20px;
+    color: var(--primarna);
+    margin: 0 15px;
+    transition: var(--tranzicija);
+}
+
+.social-links a:hover { color: var(--akcent); }
+
+/* 8. RESPONSIVE */
+@media (min-width: 1201px) { main { grid-template-columns: repeat(3, 1fr); } }
+
+@media (max-width: 1200px) and (min-width: 769px) {
+    main { grid-template-columns: repeat(2, 1fr); }
+    .content-wrapper > nav { width: 240px; }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper > nav {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 30px;
+    }
+    main {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    header nav ul { gap: 10px; }
+}
+
+@keyframes stranicaFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
