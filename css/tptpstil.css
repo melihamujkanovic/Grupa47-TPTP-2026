@@ -100,24 +100,60 @@ header nav ul li a {
 header nav ul li a:hover { color: var(--akcent); }
 
 /* SVG Logo */
-/* Efekat na tekst unutar logotipa */
-.logo:hover .logo-text {
-    fill: #ff4757;             /* Upečatljiva crvenkasta boja na hover */
-    cursor: pointer;
-}
-
-/* Animacija povećanja cijelog SVG-a */
+/* 1. STIL ZA LOGO KONTEJNER */
 .logo {
-    transition: transform 0.2s ease-in-out; /* Glatka tranzicija */
+    cursor: pointer;
+    overflow: visible;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
+/* 2. EFEKAT NA TEKST UNUTAR LOGOTIPA */
+.logo text {
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif; /* Elegantni font za modu */
+    font-weight: 700;
+    letter-spacing: 8px;
+    /* Zlatni gradijent koji "pršti" */
+    fill: #c5a059; 
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    transition: all 0.3s ease;
+}
+
+/* 3. DINAMIKA NA HOVER (Kada pređeš mišem) */
 .logo:hover {
-    transform: scale(1.05);    /* Lagano povećanje na 105% */
+    transform: scale(1.1) rotate(-1deg); /* Blaga rotacija i povećanje */
 }
 
-/* Prilagođavanje logotipa za Dark Mode */
-body.dark-mode .logo line {
-    stroke: var(--akcent); /* Linija ostaje zlatna */
+.logo:hover text {
+    /* Efekat sjaja koji se širi */
+    fill: #1a1a1a; /* Promjena osnovne boje u kontrastnu */
+    filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.8));
+    letter-spacing: 12px; /* Slova se "šire" na hover */
+}
+
+/* 4. ANIMACIJA "SJAJA" (Shine efekt) */
+@keyframes shine {
+    from {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.5) drop-shadow(0 0 12px #c5a059);
+    }
+    to {
+        filter: brightness(1);
+    }
+}
+
+.logo {
+    animation: shine 3s infinite ease-in-out; /* Logo stalno lagano bljeska */
+}
+
+/* 5. PRILAGOĐAVANJE ZA DARK MODE */
+body.dark-mode .logo text {
+    fill: #f9e076; /* Svjetlije zlato za bolji kontrast */
+    filter: drop-shadow(0 0 5px rgba(249, 224, 118, 0.5));
 }
 
 /* --- STRUKTURA --- */
