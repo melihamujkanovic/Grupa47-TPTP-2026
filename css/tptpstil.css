@@ -19,6 +19,11 @@ body.dark-mode {
     --tekst-muted: #bbb;
 }
 
+#dark-mode-toggle {
+    border-radius: 20px; /* Zaobljeno dugme */
+    padding: 8px 15px;
+}
+
 /* Osnovni reset */
 * {
     margin: 0;
@@ -95,9 +100,60 @@ header nav ul li a {
 header nav ul li a:hover { color: var(--akcent); }
 
 /* SVG Logo */
+/* 1. STIL ZA LOGO KONTEJNER */
+.logo {
+    cursor: pointer;
+    overflow: visible;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* 2. EFEKAT NA TEKST UNUTAR LOGOTIPA */
 .logo text {
-    fill: var(--primarna);
-    transition: fill 0.3s;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif; /* Elegantni font za modu */
+    font-weight: 700;
+    letter-spacing: 8px;
+    /* Zlatni gradijent koji "pršti" */
+    fill: #c5a059; 
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    transition: all 0.3s ease;
+}
+
+/* 3. DINAMIKA NA HOVER (Kada pređeš mišem) */
+.logo:hover {
+    transform: scale(1.1) rotate(-1deg); /* Blaga rotacija i povećanje */
+}
+
+.logo:hover text {
+    /* Efekat sjaja koji se širi */
+    fill: #1a1a1a; /* Promjena osnovne boje u kontrastnu */
+    filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.8));
+    letter-spacing: 12px; /* Slova se "šire" na hover */
+}
+
+/* 4. ANIMACIJA "SJAJA" (Shine efekt) */
+@keyframes shine {
+    from {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.5) drop-shadow(0 0 12px #c5a059);
+    }
+    to {
+        filter: brightness(1);
+    }
+}
+
+.logo {
+    animation: shine 3s infinite ease-in-out; /* Logo stalno lagano bljeska */
+}
+
+/* 5. PRILAGOĐAVANJE ZA DARK MODE */
+body.dark-mode .logo text {
+    fill: #f9e076; /* Svjetlije zlato za bolji kontrast */
+    filter: drop-shadow(0 0 5px rgba(249, 224, 118, 0.5));
 }
 
 /* --- STRUKTURA --- */
@@ -126,6 +182,15 @@ header nav ul li a:hover { color: var(--akcent); }
     margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.content-wrapper nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-wrapper nav ul ul {
+    margin-left: 15px; 
 }
 
 .content-wrapper > nav h3 {
@@ -180,15 +245,23 @@ main {
 
 .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2); /* Koristi tvoju akcent boju za sjaj */
+    border-color: var(--akcent);
 }
 
 .product-card img {
     width: 100%;
-    height: 300px;
-    object-fit: cover; /* Ovo osigurava da su sve slike iste visine bez razvlačenja */
+    height: 300px; /* Zadržavamo fiksnu visinu radi poravnanja */
+    
+    /* KLJUČNA PROMJENA */
+    object-fit: contain; /* Slika se smanjuje da cijela stane, bez odsijecanja */
+    
+    /* Opcionalno: Dodajemo blagu sivu pozadinu samo slici */
+    /* tako da se 'contain' prostor bolje uklopi */
+    background-color: var(--siva); 
+    
     margin-bottom: 15px;
-    border-radius: 2px;
+    border-radius: 4px; /* Blago zaobljene ivice, kao kod dugmadi */
 }
 
 .product-card h3 {
@@ -292,4 +365,14 @@ footer p { font-size: 14px; margin-bottom: 10px; opacity: 0.8; }
 @keyframes stranicaFadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sva dugmad sa zaobljenim ivicama */
+button, 
+.filter-btn, 
+.detalji-btn, 
+#spasiDugme, 
+#dark-mode-toggle {
+    border-radius: 8px; /* Promijeni na 4px za oštrije ili 25px za potpuno zaobljene krajeve */
+    overflow: hidden;   /* Osigurava da sadržaj ne izlazi van zaobljenih ivica */
 }
