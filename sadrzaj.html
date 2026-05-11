@@ -15,7 +15,7 @@ content="#ffffff">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <!-- Link za Font Awesome ikonice dodano uz pomoć AI-a-->
 </head>
-<body>
+<body id="vrh">
     <header>
         <input type="text" id="korisnickoIme" placeholder="Unesi ime">
 <button id="spasiDugme">Spasi me</button> <!-- uz pomoć Gemini AI-a dodano je polje za unos imena za localStorage-->
@@ -53,7 +53,7 @@ content="#ffffff">
 </thead>
 <tbody>
 <tr>
-<td> Svečana čipkana haljina</td>
+<td> Svečana haljina</td>
 <td>Čipka</td>
 <td> S,M</td>
 <td> 90.00</td>
@@ -89,8 +89,85 @@ content="#ffffff">
 <td>85.00</td>
 </tr>
 </table>
+<section class="gallery-container">
+<h3>Galerija naših artikala</h3>
+<div class="galery-grid">
+<article class="galery-item">
+<picture>
+<source scrset="images/model 2.webp" width="200" type="image/webp"> 
+<!--AI mi je pomogao da implementiram WebP format i objasnio mi je kako da pravilno strukiram
+putanje u HTML-u.Međutim, pošto WebP nije podržan na baš svim starim verzijama browsera, 
+AI mi je pomogao da implementiram 'fallback' metodu. 
+To znači da smo u kodu naveli i obični JPG kao rezervnu opciju.
+ Na taj način smo osigurali da sajt bude moderan i brz za većinu korisnika, 
+ ali i potpuno funkcionalan za one koji koriste stariji softver
+-->
+<img src="images/model 2.jpg"  width="200" alt="Kratka crna čipkana haljina za svečane prilike">
+</picture>
+</article>
+<article class="galery-item">
+<img src="images/model1.jpg" width="200" alt="Roza ljetna haljina sa puf rukavima i strukiranim detaljem">
+</article>
+<article class="galery-item">
+<img src="images/model3.jpg" width="200" alt="Elegantna suknja od ružičastog satena visokog struka">
+</article>
+<article class="galery-item">
+<img src="images/model4.jpg" width="200" alt="Muška lanena košulja u bež boji sa prednjim džepom">
+</article>
+<article class="galery-item">
+<img src="images/model5.jpg" width="200" alt="Muška crna košulja dugih rukava,slim fit kroj">
+</article>
+<article class="galery-item">
+<img src="images/model6.jpg" width="200" alt="Smeđe hlače ravnog kroja idealne za poslovne prilike">
+</article>
+</div>
+</section>
+<section class="image-map-container">
+    <h3>Saten: Materijal sezone</h3>
+    <p>Kliknite na haljinu da vidite naše suknje od istog materijala:</p>
+    <img src="images/model7.jpg"  alt="Saten haljina" usemap="#modna-mapa" >
+<map name="modna-mapa">
+  <area shape="rect" coords="221,195,255,327" alt="Kategorija Suknje" href="index.html#suknje">
+    </map>
+</section>
+<!--ImageMap je HTML tehnika koja omogućava da jedna slika postane interaktivna
+Pomoću ImageMap definišemo specifične zone ,svaka zona klikom na sliku može voditi 
+na različito mjesto .Koordinate za klikabilnu zonu sam odredila pomoću alata Paint.
+AI mi je pomogaoda te podatke prevedem u validan HTMLkod -->
+<section>
+    <h2>Kategorije proizvoda</h2>
+    <ul>
+        <li>Ženska odjeća
+            <ul>
+                <li>Suknje (Saten, Pamuk)</li>
+                <li>Haljine (Svečane, Ljetne)</li>
+            </ul>
+        </li>
+        <li>Muška odjeća
+            <ul>
+                <li>Košulje (Lan, Pamuk)</li>
+                <li>Hlače (Slim fit, Regular)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<div class="vrh-kontejner">
+    <a href="#vrh" class="vrh-link">Nazad na vrh</a>
+</div>
+<footer>  
+    <hr>
+    <p>&copy; 2025/2026 - Sola Online Shop</p>
+    <p>Autori: Merisa Hodžić, Tarik Salihović , Meliha Mujkanović</p>
+    <h3> Pratite nas na mrežama</h3>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+</footer>
+</div>
 
-<
+
 
 
 
