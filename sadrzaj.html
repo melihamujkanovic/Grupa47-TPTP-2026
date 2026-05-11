@@ -94,7 +94,14 @@ content="#ffffff">
 <div class="galery-grid">
 <article class="galery-item">
 <picture>
-<source scrset="images/model 2.webp" width="200" type="image/webp">
+<source scrset="images/model 2.webp" width="200" type="image/webp"> 
+<!--AI mi je pomogao da implementiram WebP format i objasnio mi je kako da pravilno strukiram
+putanje u HTML-u.Međutim, pošto WebP nije podržan na baš svim starim verzijama browsera, 
+AI mi je pomogao da implementiram 'fallback' metodu. 
+To znači da smo u kodu naveli i obični JPG kao rezervnu opciju.
+ Na taj način smo osigurali da sajt bude moderan i brz za većinu korisnika, 
+ ali i potpuno funkcionalan za one koji koriste stariji softver
+-->
 <img src="images/model 2.jpg"  width="200" alt="Kratka crna čipkana haljina za svečane prilike">
 </picture>
 </article>
@@ -123,6 +130,10 @@ content="#ffffff">
   <area shape="rect" coords="221,195,255,327" alt="Kategorija Suknje" href="index.html#suknje">
     </map>
 </section>
+<!--ImageMap je HTML tehnika koja omogućava da jedna slika postane interaktivna
+Pomoću ImageMap definišemo specifične zone ,svaka zona klikom na sliku može voditi 
+na različito mjesto .Koordinate za klikabilnu zonu sam odredila pomoću alata Paint.
+AI mi je pomogaoda te podatke prevedem u validan HTMLkod -->
 <section>
     <h2>Kategorije proizvoda</h2>
     <ul>
@@ -142,6 +153,18 @@ content="#ffffff">
 </section>
 <div class="vrh-kontejner">
     <a href="#vrh" class="vrh-link">Nazad na vrh</a>
+</div>
+<footer>  
+    <hr>
+    <p>&copy; 2025/2026 - Sola Online Shop</p>
+    <p>Autori: Merisa Hodžić, Tarik Salihović , Meliha Mujkanović</p>
+    <h3> Pratite nas na mrežama</h3>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+</footer>
 </div>
 
 
