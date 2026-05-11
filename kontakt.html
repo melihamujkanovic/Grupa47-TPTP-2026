@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" 
+content="width=device-width, 
+initial-scale=1.0">
+<meta name="color-scheme" content ="light dark">
+<title> Sola Online Shop</title>
+<link rel="stylesheet" href="css/tptpstil.css">
+<script src="js/tptpskripte.js" defer></script>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color"
+content="#ffffff">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<!-- Link za Font Awesome ikonice dodano uz pomoć AI-a-->
+</head>
+<body>
+ <header>
+<input type="text" id="korisnickoIme" placeholder="Unesi ime">
+<button id="spasiDugme">Spasi me</button> <!-- uz pomoć Gemini AI-a dodano je polje za unos imena za localStorage-->
+        <!-- ove dijelove koda za svg logo sam napisala uz pomoć Gemini AI-->
+<svg class="logo" width="150" height="50" 
+ viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+ <text x="10" y="35" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="28" font-weight="300" 
+ letter-spacing="3" fill="black">
+            SOLA
+ </text>
+</svg> 
+ <nav>
+    <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="sadrzaj.html">Proizvodi</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="https://github.com/melihamujkanovic/Grupa47-TPTP-2026.git" target="_blank">GitHub Repozitorij</a></li>
+                <li style="list-style : none;"><button id="dark-mode-toggle"> Promijeni mod</button>
+            </li>
+            </ul>
+            </nav>
+            </header>
+            <div class="content-wrapper">
+            <main>
+                <section>
+    <h2>Kontaktirajte nas</h2>
+    <form id="kontaktForma" novalidate>
+        <div>
+            <label for="ime">Ime:</label>
+            <input type="text" id="ime" name="user_ime">
+            <span id="imeGreška" class="error-msg"></span>
+        </div>
+        <div>
+            <label for="prezime">Prezime:</label> <!--povezuje tekstualni opis sa poljem za unos-->
+            <input type="text" id="prezime" name="user_prezime"> <!--glavno polje gdje korisnik prima
+            podatke za ime ili email adresu-->
+            <span id="prezimeGreška" class="error-msg"></span> <!--prazno polje koje služi za
+            prikazivanje poruka o grešci (npr."Molimo unesite ime ") ako korisnik pogrešno 
+            popuni formu-->
+        </div>
+          <div>
+            <label for="email">Email:</label> 
+            <input type="email" id="email" name="user_email">
+            <span id="emailGreška" class="error-msg"></span>
+          </div>
+        <div>
+            <label for="tema">Tema upita:</label>
+            <select id="tema" name="user_tema">  <!--otvara padajući meni u kojem korisnik bira
+                jednu od ponuđenih stavki-->
+                <option value="">Odaberite temu </option> <!-- dediniše pojedinačne stavke
+                u meniju ; value je ono što program vidi ,a tekst između tagova 
+                ono što korisnik bira -->
+                <option value="kupovina">Pomoć pri kupovini</option>
+                <option value="dostava">Pitanje o dostavi</option>
+                <option value="reklamacija">Reklamacija</option>
+            </select>
+            <span id="temaGreška" class="error-msg"></span>
+        </div>
+        <div>
+            <label for="poruka">Vaša poruka:</label>
+            <textarea id="poruka" name="user_poruka" rows="5"></textarea> <!--veliko polje
+            za unos teksta u više redova (ovdje je fiksirano na 5 redova visine)
+            gdje korisnik piše sadržaj upita-->
+            <span id="porukaGreška" class="error-msg"></span>
+        </div>
+        <div class="form-buttons">
+            <button type="submit">Pošalji poruku</button> <!--glavno dugme koje
+            kada se klikne ,šalje sve podatke iz forme na obradu-->
+            <button type="reset" id="resetBtn">Resetuj formu</button> <!--korisno dugme
+            koje jednim klikom briše sve što je korisnik upisao i vraća formu na početno
+            stanje--> 
+        </div>
+    </form>
+    <div id="uspjehOkvir" style="display:none;"></div> <!--skriveni kontejner 
+    (display:none) koji služi da se pojavi i prikaže poruku poput "uspješno ste poslali
+    poruku !" nakon što forma prođe provjeru-->
+</section>
+<footer>  
+    <hr> <!--tag koji je samostalan ne mora se zatvrati
+    služi kao vizuelni razdjeljnik između dva dijela sadržaja 
+     npr: da odvoji glavni sadržaj od footera-->
+    <p>&copy; 2025/2026 - Sola Online Shop</p>
+    <p>Autori: Merisa Hodžić, Tarik Salihović , Meliha Mujkanović</p>
+    <h3> Pratite nas na mrežama</h3>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+</footer>
+</div>
+</body>
+</html>
