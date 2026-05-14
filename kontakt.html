@@ -46,20 +46,20 @@ content="#ffffff">
         <div>
             <label for="ime">Ime:</label>
             <input type="text" id="ime" name="user_ime">
-            <span id="imeGreška" class="error-msg"></span>
+            <span id="imeGreska" class="error-msg"></span>
         </div>
         <div>
             <label for="prezime">Prezime:</label> <!--povezuje tekstualni opis sa poljem za unos-->
             <input type="text" id="prezime" name="user_prezime"> <!--glavno polje gdje korisnik prima
             podatke za ime ili email adresu-->
-            <span id="prezimeGreška" class="error-msg"></span> <!--prazno polje koje služi za
+            <span id="prezimeGreska" class="error-msg"></span> <!--prazno polje koje služi za
             prikazivanje poruka o grešci (npr."Molimo unesite ime ") ako korisnik pogrešno 
             popuni formu-->
         </div>
           <div>
             <label for="email">Email:</label> 
             <input type="email" id="email" name="user_email">
-            <span id="emailGreška" class="error-msg"></span>
+            <span id="emailGreska" class="error-msg"></span>
           </div>
         <div>
             <label for="tema">Tema upita:</label>
@@ -72,14 +72,14 @@ content="#ffffff">
                 <option value="dostava">Pitanje o dostavi</option>
                 <option value="reklamacija">Reklamacija</option>
             </select>
-            <span id="temaGreška" class="error-msg"></span>
+            <span id="temaGreska" class="error-msg"></span>
         </div>
         <div>
             <label for="poruka">Vaša poruka:</label>
             <textarea id="poruka" name="user_poruka" rows="5"></textarea> <!--veliko polje
             za unos teksta u više redova (ovdje je fiksirano na 5 redova visine)
             gdje korisnik piše sadržaj upita-->
-            <span id="porukaGreška" class="error-msg"></span>
+            <span id="porukaGreska" class="error-msg"></span>
         </div>
         <div class="form-buttons">
             <button type="submit">Pošalji poruku</button> <!--glavno dugme koje
