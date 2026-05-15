@@ -57,3 +57,59 @@ window.onload = () => {
         alert("Dobrodošli nazad, " + sacuvanoIme + "!");
     }
 };
+
+const kontaktForma = document.getElementById("kontaktForma");
+if(kontaktForma) { // Proveravamo da li forma postoji na stranici
+    kontaktForma.addEventListener("submit", function(e) { // Dodajemo event listener za submit događaj na formu
+        e.preventDefault();
+        let validno=true;
+        //Provjera imena
+        const ime = document.getElementById("ime").value;
+        const imeGreska = document.getElementById("imeGreska");
+        if(ime.length <2) {
+            imeGreska.textContent = "Ime mora biti barem 2 karaktera.";
+            validno=false;
+        } else {
+            imeGreska.textContent = "";
+        }
+
+        //Provjera prezimena
+        const prezime=document.getElementById("prezime").value;
+        const prezimeGreska=document.getElementById("prezimeGreska");
+        if(prezime.length <2) {
+            prezimeGreska.textContent = "Prezime mora biti barem 2 karaktera.";
+            validno=false;
+        } else {
+            prezimeGreska.textContent = "";
+        }
+
+        //Provjera emaila
+        const email=document.getElementById("email").value;
+        const emailGreska=document.getElementById("emailGreska");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex za validaciju emaila urađen pomoću copilota
+        if(!emailRegex.test(email)) {
+            emailGreska.textContent = "Unesite validnu email adresu.";
+            validno=false;
+        } else {
+            emailGreska.textContent = "";
+        }
+
+        //Provjera teme
+        const tema=document.getElementById("tema").value;
+        const temaGreska=document.getElementById("temaGreska");
+        if(tema === "") {
+            temaGreska.textContent = "Molimo odaberite temu.";
+            validno=false;
+        } else{
+            temaGreska.textContent = "";
+        }
+
+        //Ako je sve validno
+        if(validno){
+            const uspjehOkvir=document.getElementById("uspjehOkvir");
+            uspjehOkvir.textContent = "Hvala vam "+ime+". Vaša poruka je uspješno poslana!";
+            uspjehOkvir.style.display = "block";
+            kontaktForma.reset(); // Resetujemo formu nakon uspješnog slanja
+        }
+    });
+}
