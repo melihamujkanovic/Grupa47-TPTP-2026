@@ -1,7 +1,7 @@
 // Registracija Service Workera
 if ('serviceWorker' in navigator) { // Proveravamo da li browser podržava Service Workere
   window.addEventListener('load', () => {// Registrujemo Service Worker nakon što se stranica učita
-    navigator.serviceWorker.register('/sw.js') 
+    navigator.serviceWorker.register('./sw.js') 
       .then(reg => console.log('Service Worker registrovan!'))
       .catch(err => console.log('Greška pri registraciji SW', err));
   });
