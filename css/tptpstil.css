@@ -169,8 +169,7 @@ body.dark-mode .logo text {
 .content-wrapper {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column
-    align;
+    flex-direction: column align;
     max-width: 100%;
     margin: 0 auto;
     width: 100%;
@@ -243,6 +242,15 @@ main {
     padding: 20px;
     animation: stranicaFadeIn 0.8s ease-out;
     min-width: 0;
+}
+
+main > p, main > span, main > div:first-child { 
+    grid-column: 1 / -1; 
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--akcent);
+    text-align: right; 
+    padding-right: 10px;
 }
 
 .product-card {
