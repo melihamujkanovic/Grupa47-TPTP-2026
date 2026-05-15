@@ -1,10 +1,26 @@
 // Registracija Service Workera
 if ('serviceWorker' in navigator) { // Proveravamo da li browser podržava Service Workere
   window.addEventListener('load', () => {// Registrujemo Service Worker nakon što se stranica učita
-    navigator.serviceWorker.register('/sw.js') 
-      .then(reg => console.log('Service Worker registrovan!'))
-      .catch(err => console.log('Greška pri registraciji SW', err));
+    navigator.serviceWorker.register('./sw.js') 
+      .then(reg => {
+        console.log('Service Worker registrovan!', reg);
+        // Proveravamo da li postoji update
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              console.log('Novi Service Worker je dostupan!');
+            }
+          });
+        });
+      })
+      .catch(err => {
+        console.error('Greška pri registraciji SW:', err);
+        console.error('Detalji greške:', err.message, err.stack);
+      });
   });
+} else {
+  console.warn('Service Worker nije podržan u ovom browser-u');
 }
 
 // Tamni mod toggle
