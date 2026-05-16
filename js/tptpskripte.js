@@ -43,6 +43,21 @@ btn.addEventListener("click", () => {
 //Kod za filtriranje proizvoda
 const filterButtons = document.querySelectorAll(".filter-btn");
 const productCards = document.querySelectorAll(".product-card");
+const brojac = document.getElementById("product-count");
+brojac.textContent = productCards.length; // Postavljamo broj proizvoda u element sa id "product-count" na broj kartica proizvoda
+function azurirajBrojac() {
+    let brojVidljivih = 0;
+    productCards.forEach(card => {
+        if (card.style.display !== "none") {
+            brojVidljivih++;
+        }
+        if(brojac) {
+            brojac.textContent = brojVidljivih; // Ažuriramo broj vidljivih proizvoda
+        } 
+    });
+}
+azurirajBrojac(); // Pozivamo funkciju da postavi početni broj proizvoda
+
 
 filterButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -55,6 +70,7 @@ filterButtons.forEach(button => {
                 card.style.display = "none"; // Sakrivamo karticu ako se ne poklapa
             }
         });
+        azurirajBrojac(); // Ažuriramo broj vidljivih proizvoda nakon filtriranja
     });
 });
 // Kod za čuvanje korisničkog imena u localStorage
@@ -129,3 +145,4 @@ if(kontaktForma) { // Proveravamo da li forma postoji na stranici
         }
     });
 }
+
