@@ -18,11 +18,11 @@ content="#ffffff">
 <body id="vrh">
     <header>
         <input type="text" id="korisnickoIme" placeholder="Unesi ime">
-<button id="spasiDugme">Spasi me</button> <!-- uz pomoć Gemini AI-a dodano je polje za unos imena za localStorage-->
+<button id="spasiDugme">Sačuvaj</button> <!-- uz pomoć Gemini AI-a dodano je polje za unos imena za localStorage-->
         <!-- ove dijelove koda za svg logo sam napisala uz pomoć Gemini AI-->
        <svg class="logo" width="150" height="50" 
        viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
-          <text x="10" y="35" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="28" font-weight="300" letter-spacing="3" fill="black">
+          <text x="10" y="35" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="35" font-weight="300" letter-spacing="3" fill="black">
             SOLA
           </text>
 </svg> 
@@ -55,7 +55,17 @@ content="#ffffff">
             </li>
         </ul>
     </section>
-
+    <aside class="bocni-info-meni">
+        <h3>Sola info</h3>
+        <div class="bocna-kartica">
+            <h4>Besplatna dostava</h4>
+            <p>Za sve narudžbe preko 100 KM dostava je besplatna širom BiH.</p>
+        </div>
+        <div class="bocna-kartica">
+            <h4>Rok isporuke</h4>
+            <p>Svi artikli stižu na vašu adresu u roku od 24 do 48 sati.</p>
+        </div>
+    </aside>
 <section class="cjenovnik-sekcija">
 <h2>Cjenovnik i detalji</h2>
 <table>
@@ -107,6 +117,7 @@ content="#ffffff">
 </tbody>
 </table>
 </section>
+
 <section class="gallery-container">
 <h3>Galerija naših artikala</h3>
 <div class="gallery-grid">
@@ -141,10 +152,9 @@ To znači da smo u kodu naveli i obični JPG kao rezervnu opciju.
 </div>
 </section>
 <section class="image-map-container">
-    <aside>
-    <h3>Saten: Materijal sezone</h3>
+    <h3> Saten: Materijal sezone </h3>
     <p>Kliknite na haljinu da vidite naše suknje od istog materijala:</p>
-    </aside>
+
    <img src="images/model.jpg" usemap="#image-map" alt="Zelena haljina">
 
 <map name="image-map">
@@ -165,13 +175,14 @@ AI mi je pomogaoda te podatke prevedem u validan HTML kod -->
     <hr> <!--tag koji je samostalan ne mora se zatvrati
     služi kao vizuelni razdjeljnik između dva dijela sadržaja 
      npr: da odvoji glavni sadržaj od footera-->
-    <p>&copy; 2025/2026 - Sola Online Shop</p>
+  <p>&copy; 2025/2026 - Sola Online Shop</p>
     <p>Autori: Merisa Hodžić, Tarik Salihović , Meliha Mujkanović</p>
     <h3> Pratite nas na društvenim mrežama</h3>
     <div class="social-links">
         <a href="https://www.instagram.com/online_shop_nela?igsh=cDI1eHdnaG01N2gy" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.facebook.com/share/14hpEQm7eZp/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <div class="vrh-kontejner">
+    </div>
+    <div class="vrh-container">
     <a href="#vrh" class="vrh-link">Skoči na vrh</a>
 </div>
     <!--Napomena:Linkovi na društvene mreže su usmjereni na instagram i facebook
