@@ -1,4 +1,4 @@
-const cacheName = 'sola-v2';
+const cacheName = 'sola-v3';
 const staticAssets = [
   './',
   './index.html',
@@ -6,6 +6,13 @@ const staticAssets = [
   './kontakt.html',
   './css/tptpstil.css',
   './js/tptpskripte.js',
+  './images/model.jpg',
+  './images/model1.jpg',
+  './images/model 2.jpg',
+  './images/model3.jpg',
+  './images/model4.jpg',
+  './images/model5.jpg',
+  './images/model6.jpg',
   './images/haljina.jpg',
   './images/hlace.jpg',
   './images/haljina2.jpg',
