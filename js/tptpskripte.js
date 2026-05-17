@@ -24,27 +24,61 @@ if ('serviceWorker' in navigator) { // Proveravamo da li browser podržava Servi
 }
 
 // Tamni mod toggle
-const btn = document.getElementById("dark-mode-toggle");
-const currentTheme = localStorage.getItem("theme");
-
-if (currentTheme == "dark") {
-    document.body.classList.add("dark-mode");
+const buttons = document.querySelectorAll('#dark-mode-toggle');
+function applyTheme(theme) {
+    if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
 }
 
-btn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    let theme = "light";
-    if (document.body.classList.contains("dark-mode")) {
-        theme = "dark";
+// Primjena teme prilikom učitavanja stranice
+const savedTheme = localStorage.getItem("theme") || "light";
+applyTheme(savedTheme);
+
+// Ažuriraj sve toggle dugmiće (u slučaju da je header prisutan više puta)
+function updateToggleButtons(theme) {
+    buttons.forEach(b => {
+        if (theme === 'dark') {
+            b.textContent = 'Svijetli mod';
+            b.setAttribute('aria-pressed', 'true');
+        } else {
+            b.textContent = 'Tamni mod';
+            b.setAttribute('aria-pressed', 'false');
+        }
+    });
+}
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isDark = document.body.classList.toggle('dark-mode');
+        const theme = isDark ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+        updateToggleButtons(theme);
+    });
+});
+
+// Postavi inicijalnu oznaku na dugmićima
+updateToggleButtons(savedTheme);
+
+// Slušamo promjene u localStorage da bismo sinhronizovali temu između različitih tabova
+window.addEventListener("storage", (e) => {
+    if (e.key === "theme") {
+        applyTheme(e.newValue || "light");
+        updateToggleButtons(e.newValue || 'light');
     }
-    localStorage.setItem("theme", theme);
 });
 
 //Kod za filtriranje proizvoda
 const filterButtons = document.querySelectorAll(".filter-btn");
 const productCards = document.querySelectorAll(".product-card");
+
 const brojac = document.getElementById("product-count");
+if(brojac) {
 brojac.textContent = productCards.length; // Postavljamo broj proizvoda u element sa id "product-count" na broj kartica proizvoda
+}
 function azurirajBrojac() {
     let brojVidljivih = 0;
     productCards.forEach(card => {
@@ -146,3 +180,11 @@ if(kontaktForma) { // Proveravamo da li forma postoji na stranici
     });
 }
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
