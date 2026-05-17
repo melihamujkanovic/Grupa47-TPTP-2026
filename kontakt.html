@@ -23,7 +23,7 @@ content="#ffffff">
 <svg class="logo" width="150" height="50" 
  viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
  <text x="10" y="35" font-family="'Segoe UI', Roboto, Arial, sans-serif" font-size="35" font-weight="300" 
- letter-spacing="3" fill="black">
+ letter-spacing="3" fill="gold">
             SOLA
  </text>
 </svg> 
@@ -39,8 +39,10 @@ content="#ffffff">
             </header>
             <div class="content-wrapper">
             <main>
-                <section class="kontakt-sekcija">
-                <article class="form-container">
+     <section class="kontakt-sekcija">
+          <!--služi da grupise cijeli kontakt dio stranice u jednu cjelinu.-->
+     <article class="form-container"> <!--služi da izoluje kontakt formu kao samostalnu i nezavisnu kutiju
+        unutar te sekcije.-->
     <h2>Kontaktirajte nas</h2>
     <form id="kontaktForma" novalidate>
         <div>
@@ -49,25 +51,32 @@ content="#ffffff">
             <span id="imeGreska" class="error-msg"></span>
         </div>
         <div>
-            <label for="prezime">Prezime:</label> <!--povezuje tekstualni opis sa poljem za unos-->
+            <label for="prezime">Prezime:</label> <!--povezuje tekstualni opis sa poljem za unos.-->
             <input type="text" id="prezime" name="user_prezime"> <!--glavno polje gdje korisnik prima
-            podatke za ime ili email adresu-->
+            podatke za ime ili email adresu.-->
             <span id="prezimeGreska" class="error-msg"></span> <!--prazno polje koje služi za
             prikazivanje poruka o grešci (npr."Molimo unesite ime ") ako korisnik pogrešno 
-            popuni formu-->
+            popuni formu.-->
         </div>
+
+        <div>
+        <label for="telefon">Telefon:</label>
+        <input type="text" id="telefon" name="telefon">
+        <span id="telefon-greska" class="error-msg"></span>
+        </div>
+
           <div>
             <label for="email">Email:</label> 
-            <input type="email" id="email" name="user_email">
+            <input type="text" id="email" name="user_email">
             <span id="emailGreska" class="error-msg"></span>
           </div>
         <div>
             <label for="tema">Tema upita:</label>
             <select id="tema" name="user_tema">  <!--otvara padajući meni u kojem korisnik bira
-                jednu od ponuđenih stavki-->
-                <option value="">Odaberite temu </option> <!-- dediniše pojedinačne stavke
+                jednu od ponuđenih stavki.-->
+                <option value="">Odaberite temu </option> <!-- definiše pojedinačne stavke
                 u meniju ; value je ono što program vidi ,a tekst između tagova 
-                ono što korisnik bira -->
+                ono što korisnik bira. -->
                 <option value="kupovina">Pomoć pri kupovini</option>
                 <option value="dostava">Pitanje o dostavi</option>
                 <option value="reklamacija">Reklamacija</option>
@@ -78,22 +87,21 @@ content="#ffffff">
             <label for="poruka">Vaša poruka:</label>
             <textarea id="poruka" name="user_poruka" rows="5"></textarea> <!--veliko polje
             za unos teksta u više redova (ovdje je fiksirano na 5 redova visine)
-            gdje korisnik piše sadržaj upita-->
+            gdje korisnik piše sadržaj upita.-->
             <span id="porukaGreska" class="error-msg"></span>
         </div>
         <div class="form-buttons">
             <button type="submit">Pošalji poruku</button> <!--glavno dugme koje
-            kada se klikne ,šalje sve podatke iz forme na obradu-->
+            kada se klikne ,šalje sve podatke iz forme na obradu.-->
             <button type="reset" id="resetBtn">Resetuj formu</button> <!--korisno dugme
             koje jednim klikom briše sve što je korisnik upisao i vraća formu na početno
-            stanje--> 
+            stanje.--> 
         </div>
     </form>
-    <div id="uspjehOkvir" style="display:none;"></div> <!--skriveni kontejner 
-    (display:none) koji služi da se pojavi i prikaže poruku poput "uspješno ste poslali
-    poruku !" nakon što forma prođe provjeru-->
+    <div id="uspjehOkvir"></div>
 
 </article>
+
 <aside class="radno-vrijeme">
     <h3>RADNO VRIJEME</h3>
     <p>
