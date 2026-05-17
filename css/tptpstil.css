@@ -19,11 +19,6 @@ body.dark-mode {
     --tekst-muted: #bbb;
 }
 
-#dark-mode-toggle {
-    border-radius: 20px; 
-    padding: 8px 15px;
-}
-
 /* Osnovni reset */
 * {
     margin: 0;
@@ -44,11 +39,11 @@ body {
 /* 2. HEADER */
 header {
     background: var(--bijela);
-    padding: 30px 5%; 
+    padding: 20px 5%; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centriranje po horizontali */
-    justify-content: center; /* Centriranje po vertikali */
+    align-items: center; 
+    justify-content: center; 
     border-bottom: 1px solid rgba(0,0,0,0.1);
     width: 100%;
     z-index: 1000;
@@ -59,7 +54,6 @@ header {
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-bottom: 10px;
     background: var(--bijela);
     color: var(--primarna);
     display: inline-block;
@@ -92,6 +86,8 @@ header nav ul {
     list-style: none;
     gap: 25px;
     margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 header nav ul li a {
@@ -107,150 +103,129 @@ header nav ul li a {
 header nav ul li a:hover { color: var(--akcent); }
 
 /* SVG Logo */
-/* 1. STIL ZA LOGO KONTEJNER */
 .logo {
     cursor: pointer;
     overflow: visible;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     display: block;
-    margin: 15px auto; /* Auto margine centriraju logo u potpunosti */
+    margin: 10px auto; 
 }
 
-/* 2. EFEKAT NA TEKST UNUTAR LOGOTIPA */
 .logo text {
     text-transform: uppercase;
-    font-family: 'Playfair Display', serif; /* Elegantni font za modu */
     font-weight: 700;
     letter-spacing: 8px;
-    fill: #c5a059; 
-    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-    -webkit-background-clip: text;
-    background-clip: text;
+    fill: var(--akcent); 
     transition: all 0.3s ease;
 }
 
-/* 3. DINAMIKA NA HOVER (Kada pređeš mišem) */
 .logo:hover {
-    transform: scale(1.1) rotate(-1deg); /* Blaga rotacija i povećanje */
+    transform: scale(1.1) rotate(-1deg); 
 }
 
 .logo:hover text {
-    /* Efekat sjaja koji se širi */
-    fill: #1a1a1a; /* Promjena osnovne boje u kontrastnu */
     filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.8));
-    letter-spacing: 12px; /* Slova se "šire" na hover */
+    letter-spacing: 12px; 
 }
 
-/* 4. ANIMACIJA "SJAJA" (Shine efekt) */
-@keyframes shine {
-    from {
-        filter: brightness(1);
-    }
-    50% {
-        filter: brightness(1.5) drop-shadow(0 0 12px #c5a059);
-    }
-    to {
-        filter: brightness(1);
-    }
-}
-
-.logo {
-    animation: shine 3s infinite ease-in-out; /* Logo stalno lagano bljeska */
-}
-
-/* 5. PRILAGOĐAVANJE ZA DARK MODE */
-body.dark-mode .logo text {
-    fill: #f9e076; 
-    filter: drop-shadow(0 0 5px rgba(249, 224, 118, 0.5));
-}
-
-/* --- STRUKTURA --- */
+/* STRUKTURA */
 .content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column align;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0;
     width: 100%;
-    overflow-x: hidden;
+    padding: 20px 25px;
 }
 
-/* 3. SIDEBAR (Lijeva strana) */
-.content-wrapper > nav {
-    width: 280px;
-    padding: 40px 30px;
-    background: var(--bijela);
-    border-right: 1px solid rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+body.dark-mode hr {
+    background: rgba(255,255,255,0.1);
 }
 
-.content-wrapper > nav h2 {
-    font-size: 1.1rem;
+@media (min-width: 768px) {
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    .glavni-sadrzaj {
+        width: 100%;
+        padding: 0;
+    }
+
+    .glavni-sadrzaj nav {
+        flex: 0 0 200px;
+        min-width: 200px;
+    }
+
+    main {
+        flex: 1;
+        margin-top: 0;
+    }
+}
+
+.glavni-sadrzaj h2 {
+    font-size: 1.8rem;
     margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    border-left: 4px solid var(--akcent);
+    padding-left: 12px;
 }
 
-.content-wrapper nav ul {
+.glavni-sadrzaj nav ul {
     list-style: none;
-    padding-left: 0;
-}
-
-.content-wrapper nav ul ul {
-    margin-left: 15px; 
-}
-
-.content-wrapper > nav h3 {
-    font-size: 0.9rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: var(--akcent);
-    text-transform: uppercase;
-}
-
-/* 4. FILTER DUGMAD */
-.filter-btn {
-    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.glavni-sadrzaj nav ul ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px 0 5px 15px;
+    background: transparent;
+    border: none;
+}
+
+.filter-btn {
+    padding: 2px 0;
+    background: transparent; 
     color: var(--primarna);
     border: none;
-    border-bottom: 1px solid transparent;
     cursor: pointer;
-    font-weight: 400;
-    text-transform: none;
     font-size: 14px;
+    transition: var(--tranzicija);
     text-align: left;
     width: auto;
-    transition: var(--tranzicija);
 }
 
 .filter-btn:hover {
     color: var(--akcent);
-    padding-left: 5px;
-    border-bottom: 1px solid var(--akcent);
+    background: transparent;
 }
 
-/* 5. MAIN - GRID PROIZVODA */
+/* MAIN - GRID PROIZVODA (INDEX STRANICA) */
 main {
-    flex: 1;
     display: grid;
-    gap: 30px;
-    padding: 20px;
-    animation: stranicaFadeIn 0.8s ease-out;
-    min-width: 0;
+    gap: 25px;
 }
 
-main > p, main > span, main > div:first-child { 
-    grid-column: 1 / -1; 
-    margin-bottom: 10px;
+.filter-bar {
+    grid-column: 1 / -1;
+    text-align: right;
     font-weight: bold;
     color: var(--akcent);
-    text-align: right; 
-    padding-right: 10px;
 }
 
 .product-card {
@@ -280,9 +255,8 @@ main > p, main > span, main > div:first-child {
 }
 
 .product-card h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
-    min-height: 2.4em; 
 }
 
 .product-card p {
@@ -293,6 +267,8 @@ main > p, main > span, main > div:first-child {
 }
 
 .detalji-btn {
+    display: block;
+    text-decoration: none;
     padding: 12px;
     background: var(--primarna);
     color: var(--bijela);
@@ -307,235 +283,234 @@ main > p, main > span, main > div:first-child {
 .detalji-btn:hover {
     background: var(--akcent);
     border-color: var(--akcent);
+    color: var(--bijela);
 }
 
-/* 6. ASIDE (Lokacija) */
-aside {
+/* DRUGA STRANICA (Layout sa slike u 3 kolone) */
+.gornji-layout-sadrzaj {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    align-items: stretch;
     width: 100%;
-    background: var(--siva);
-    text-align: center;
-    clear: both;
-    padding: 40px 10px;
-    box-sizing: border-box;
 }
 
-aside h3 { margin-bottom: 15px; text-transform: uppercase; }
-
-aside iframe {
-    width: 100%;
-    max-width: 1000px;
-    height: 400px;
-    border: 0;
-    filter: grayscale(0.5); 
-    transition: 0.3s;
-    margin-top: 30px;
-}
-
-aside iframe:hover { filter: grayscale(0); }
-
-/* 7. FOOTER */
-footer {
-    width: 100%;
-    padding: 50px 20px;
+.kategorije-sekcija {
+    flex: 1;
+    min-width: 250px;
     background: var(--bijela);
-    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.kategorije-sekcija h3 {
+    margin-bottom: 15px;
+    border-left: 3px solid var(--akcent);
+    padding-left: 10px;
+}
+
+.kategorije-sekcija ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.kategorije-sekcija ul li {
+    margin-bottom: 8px;
+}
+
+.kategorije-sekcija ul ul {
+    padding-left: 15px;
+    list-style: disc;
+}
+
+/* Srednja kartica: Korisne Informacije */
+.bocni-info-meni {
+    flex: 1;
+    min-width: 250px;
+    background: var(--bijela);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
     text-align: center;
 }
 
-footer p { font-size: 14px; margin-bottom: 10px; opacity: 0.8; }
-
-.social-links { margin-top: 20px; }
-
-.social-links a {
-    font-size: 20px;
+.bocni-info-meni h3 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: var(--primarna);
-    margin: 0 15px;
-    transition: var(--tranzicija);
 }
 
-.social-links a:hover { color: var(--akcent); }
-
-/* 8. RESPONSIVE */
-@media (min-width: 1201px) { main { grid-template-columns: repeat(3, 1fr); } }
-
-@media (max-width: 1200px) and (min-width: 769px) {
-    main { grid-template-columns: repeat(2, 1fr); }
-    .content-wrapper > nav { width: 240px; }
+.bocna-kartica {
+    margin-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-    .content-wrapper > nav {
-        width: 100%; 
-        height: auto;
-        position: relative; 
-        border-right: none;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-    main {
-        grid-template-columns: 1fr;
-        padding: 20px;
-    }
-    header nav ul { gap: 10px; }
+.bocna-kartica h4 {
+    color: var(--akcent);
+    margin-bottom: 5px;
 }
 
-@keyframes stranicaFadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.bocna-kartica p {
+    font-size: 0.9rem;
+    color: var(--tekst-muted);
 }
 
-/* Sva dugmad sa zaobljenim ivicama */
-button, 
-.filter-btn, 
-.detalji-btn, 
-#spasiDugme, 
-#dark-mode-toggle {
-    border-radius: 8px; 
-    overflow: hidden;  
+/* Desna sekcija: Tabela */
+.cjenovnik-sekcija {
+    flex: 2;
+    min-width: 450px;
 }
 
-/* --- STIL ZA DRUGU STRANICU (TABELA, GALERIJA, IMAGE MAP) --- */
+.cjenovnik-sekcija h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--akcent);
+    padding-left: 10px;
+}
 
-/* Stilovi za tabelu */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
     background: var(--bijela);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 table th, table td {
-    padding: 15px;
+    padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid var(--siva);
 }
 
 table th {
-    background-color: var(--primarna);
-    color: var(--bijela);
+    background-color: var(--siva);
+    color: var(--akcent);
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 1px;
 }
 
-table tr:hover {
-    background-color: rgba(197, 160, 89, 0.1); 
-}
-
-/* Galerija Grid (za slike modela) */
-.galery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.galery-item {
-    background: var(--bijela);
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: var(--tranzicija);
-    text-align: center;
-}
-
-.galery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.galery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-    object-fit: cover;
-}
-
-/* Image Map Sekcija */
-.image-map-container {
-    text-align: center;
-    margin: 40px 0;
-    padding: 20px;
-    background: var(--bijela);
-    border-radius: 12px;
-}
-
-.image-map-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Link "Nazad na vrh" */
-.vrh-kontejner {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.vrh-link {
-    text-decoration: none;
-    color: var(--primarna);
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-bottom: 2px solid var(--akcent);
-    padding-bottom: 5px;
-    transition: var(--tranzicija);
-}
-
-.vrh-link:hover {
-    color: var(--akcent);
-    letter-spacing: 1px;
-}
-
-/* Ispravka za Dark Mode u tabelama */
-body.dark-mode table {
-    background: var(--bijela); 
-    color: var(--primarna);
-}
-
 body.dark-mode table th {
-    background-color: var(--siva);
-    color: var(--akcent);
+    background-color: #252525;
 }
 
-/* Prilagođavanje sekcija unutar Main-a na drugoj stranici */
-section {
-    margin-bottom: 50px;
+table tr:hover {
+    background-color: rgba(197, 160, 89, 0.05); 
 }
 
-section h2, section h3 {
+/* POVEĆANA GALERIJA ARTIKALA (DRUGA STRANICA) */
+.gallery-container {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.gallery-container h3, .image-map-container h3 {
     margin-bottom: 20px;
-    color: var(--primarna);
     border-left: 4px solid var(--akcent);
     padding-left: 15px;
 }
 
-/* --- STIL ZA KONTAKT FORMU --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 25px;
+}
 
-#kontaktForma {
-    max-width: 800px; 
-    margin: 40px auto;
+.gallery-item {
+    background: var(--bijela);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: var(--tranzicija);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain; 
+    border-radius: 8px;
+}
+
+/* Image Map Sekcija */
+.image-map-layout {
+    display: flex;
+    gap: 30px;
     background: var(--bijela);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.image-map-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.image-map-container-box {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.image-map-container-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* KONTATK STRANICA FORMA */
+.kontakt-sekcija {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form-container {
+    flex: 2;
+    min-width: 350px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    border-left: 4px solid var(--akcent);
+    padding-left: 15px;
+}
+
+#kontaktForma {
+    background: var(--bijela);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 #kontaktForma div {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
 }
 
 #kontaktForma label {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--primarna);
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -543,13 +518,13 @@ section h2, section h3 {
 #kontaktForma input, 
 #kontaktForma select, 
 #kontaktForma textarea {
-    padding: 12px 15px;
+    padding: 10px 15px;
     border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 8px;
+    border-radius: 6px;
     background-color: var(--siva);
     color: var(--primarna);
     font-family: var(--font-glavni);
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: var(--tranzicija);
 }
 
@@ -559,78 +534,135 @@ section h2, section h3 {
     outline: none;
     border-color: var(--akcent);
     background-color: var(--bijela);
-    box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
 }
 
-/* Stil za poruke o greškama */
 .error-msg {
     color: #e74c3c;
     font-size: 0.8rem;
-    margin-top: 5px;
+    margin-top: 4px;
     min-height: 1em;
 }
 
-/* Dugmad u formi */
 .form-buttons {
     flex-direction: row !important; 
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-#kontaktForma button {
+.form-buttons button {
     flex: 1;
-    padding: 15px;
+    padding: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
     cursor: pointer;
+    border-radius: 6px;
     transition: var(--tranzicija);
     border: none;
 }
 
-#kontaktForma button[type="submit"] {
+button[type="submit"] {
     background: var(--primarna);
     color: var(--bijela);
 }
 
-#kontaktForma button[type="submit"]:hover {
+button[type="submit"]:hover {
     background: var(--akcent);
 }
 
-#kontaktForma button[type="reset"] {
+button[type="reset"] {
     background: transparent;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1) !important;
     color: var(--tekst-muted);
 }
 
-#kontaktForma button[type="reset"]:hover {
+button[type="reset"]:hover {
     background: #f8d7da;
     color: #721c24;
-    border-color: #f5c6cb;
 }
 
-/* Okvir za uspješno slanje */
-#uspjehOkvir {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    text-align: center;
-    font-weight: 600;
-}
-
-/* Dark mode prilagodba za formu */
-body.dark-mode #kontaktForma {
+.radno-vrijeme {
+    flex: 1;
+    min-width: 250px;
     background: var(--bijela);
-    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    height: fit-content;
 }
 
-body.dark-mode #kontaktForma input, 
-body.dark-mode #kontaktForma select, 
-body.dark-mode #kontaktForma textarea {
-    background-color: #2a2a2a;
-    border-color: #333;
+.radno-vrijeme h3 {
+    margin-bottom: 15px;
+    color: var(--akcent);
+}
+
+.radno-vrijeme p {
+    line-height: 1.8;
+}
+
+/* LOKACIJA I ASIDE */
+aside {
+    background: var(--siva);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+aside h3 { margin-bottom: 10px; }
+
+aside iframe {
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+    padding: 40px 0 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.social-links { margin: 15px 0; }
+
+.social-links a {
+    font-size: 22px;
+    color: var(--primarna);
+    margin: 0 10px;
+    transition: var(--tranzicija);
+}
+
+.social-links a:hover { color: var(--akcent); }
+
+.vrh-container { margin-top: 15px; }
+
+.vrh-link {
+    text-decoration: none;
+    color: var(--primarna);
+    font-weight: 600;
+    border-bottom: 2px solid var(--akcent);
+    padding-bottom: 3px;
+}
+
+/* Globalna dugmad */
+button, input, select, textarea, .filter-btn, .detalji-btn {
+    border-radius: 6px;
+}
+
+/* RESPONSIVE */
+@media (min-width: 992px) { 
+    main { grid-template-columns: repeat(3, 1fr); } 
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    main { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+    main { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gornji-layout-sadrzaj { flex-direction: column; }
+    .cjenovnik-sekcija { min-width: 100%; }
 }
