@@ -160,6 +160,16 @@ if(kontaktForma) { // Proveravamo da li forma postoji na stranici
             emailGreska.textContent = "";
         }
 
+        //Provjera telefona
+        const telefon=document.getElementById("telefon").value;
+        const telefonGreska=document.getElementById("telefon-greska");
+        const telefonRegex =/^(?:\+?\d{1,3})?[-.\s]?(?:\d{2,3}|\(\d{2,3}\))[-.\s]?\d{3}[-.\s]?\d{3,4}$/; // Regex za validaciju telefona napravljen pomoćšu copilota, podržava različite formate telefona
+        if(!telefonRegex.test(telefon)) {
+            telefonGreska.textContent = "Unesite validan broj telefona.";
+            validno=false;
+        } else {
+            telefonGreska.textContent = "";
+        }
         //Provjera teme
         const tema=document.getElementById("tema").value;
         const temaGreska=document.getElementById("temaGreska");
